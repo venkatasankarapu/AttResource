@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get install -y python python-pip wget
 RUN pip install Flask
 
-COPY simpleapp.py /src/simpleapp.py
+COPY AttResource.py /src/AttResource.py
 
 EXPOSE 8080
-CMD ["python","/src/simpleapp.py", "-p 8080"]
+CMD ["python","/src/AttResource.py", "-p 8080"]
