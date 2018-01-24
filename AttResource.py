@@ -25,9 +25,14 @@ def get_all_open_issues():
  Returns: Returns issues. For simplicity basic Authorization has been used
  and this will be replaced with  other authz types for deployment"""
 def get_open_issues_by_repo_name(repo_name):
-    repo_issues = requests.get("https://api.github.com/repos/att/" + repo_name + "/issues?state=open",
+   try:
+      repo_issues = requests.get("https://api.github.com/repos/att/" + repo_name + "/issues?state=open",
                                headers={"Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"}).json()
-    iss_list = []
+   except HTTPError as e:
+       # Need to check its an 404, 503, 500, 403 etc.
+       status_code = e.response.status_code
+       json.dumps({"status_code": status_code})
+   iss_list = []
     for issue in repo_issues:
         issue_info = {}
         issue_info['issue_id'] = issue['id']
@@ -62,9 +67,13 @@ def get_issue_comments(issue_comments_url):
  Returns organization's public repository list """
 def get_public_repos_by_org(org_name):
     url = "https://api.github.com/orgs/" + org_name + "/repos?type=public"
-    get_public_repos = requests.get(url, headers={"Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"})
-    return get_public_repos.json()
-
+    try:
+         get_public_repos = requests.get(url, headers={"Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"})
+         return get_public_repos.json()
+    except HTTPError as e:
+       # Need to check its an 404, 503, 500, 403 etc.
+       status_code = e.response.status_code
+       json.dumps({"status_code": status_code})
 
 if __name__ == '__main__':
     app.run(port=9898, debug=True)
