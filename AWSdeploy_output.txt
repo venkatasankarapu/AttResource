@@ -1,3 +1,3 @@
-http://venkatco.com
+http://venkatco.com/issues
 
 Deployed the code in AWS ubuntu server and output is see by clicking the above URL.
