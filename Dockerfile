@@ -1,6 +1,6 @@
-#
+
 # Docker file for python flask installation
-#
+
 
 FROM ubuntu:latest
 
@@ -10,5 +10,5 @@ RUN pip install Flask
 
 COPY simpleapp.py /src/simpleapp.py
 
-EXPOSE 8000
-CMD ["python","/src/simpleapp.py", "-p 8000"]
+EXPOSE 8080
+CMD ["python","/src/simpleapp.py", "-p 8080"]

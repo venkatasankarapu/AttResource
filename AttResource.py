@@ -22,8 +22,8 @@ def get_all_open_issues():
     return Response(json.dumps(response, indent=2), mimetype='application/json')
 
 
-# Gets all open issues for a repository using repo name
-# Returns issues list
+"""Gets all open issues for a repository using repo name
+ Returns: Returns issues """
 def get_open_issues_by_repo_name(repo_name):
     repo_issues = requests.get("https://api.github.com/repos/att/" + repo_name + "/issues?state=open",
                                headers={"Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"}).json()
@@ -42,8 +42,8 @@ def get_open_issues_by_repo_name(repo_name):
     return iss_list
 
 
-# Get all comments for an issue by issue nummber.
-# Returns list of comments of an issue
+""" Get all comments for an issue by issue nummber.
+  Returns: Returns list of comments of an issue """
 def get_issue_comments(issue_comments_url):
     issue_comments = requests.get(issue_comments_url, headers={
         "Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"}).json()
@@ -58,8 +58,8 @@ def get_issue_comments(issue_comments_url):
     return iss_comments
 
 
-# Gets all public GIT repositories for an organization
-# Returns organization's public repository list
+"""Gets all public GIT repositories for an organization
+ Returns organization's public repository list """
 def get_public_repos_by_org(org_name):
     url = "https://api.github.com/orgs/" + org_name + "/repos?type=public"
     get_public_repos = requests.get(url, headers={"Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"})

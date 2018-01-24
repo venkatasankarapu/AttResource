@@ -3,6 +3,7 @@ import responses
 import requests
 from AttResource import get_all_open_issues
 
+"""Test Case 1"""
 class AttResouceTest(unittest.TestCase):
     def test_open_issues_url(self):
         s = get_all_open_issues()
