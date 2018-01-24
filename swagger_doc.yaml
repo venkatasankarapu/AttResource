@@ -1,0 +1,33 @@
+openapi: 3.0.0
+# Added by API Auto Mocking Plugin
+servers:
+  - description: Att Open Issues API 
+    url: http://venkatco.com
+info:
+  description: This is a simple API to extract ATT issues and comments for tickets 
+  version: "1.0.0"
+  title: Att Open Issues API
+  contact:
+    email: venkata.sankarapu@gmail.com 
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admins
+    description: Secured Admin-only calls
+  - name: developers
+    description: Operations available to regular developers
+paths:
+  /issues:
+    get:
+      tags:
+        - developers
+      summary: searches inventory
+      operationId: searchInventory
+      description: |
+        Version 1 doesn't have any parameters , version 2 should have passing query parameters 
+        By passing in the appropriate options, you can search for
+        available inventory in the system
+      responses:
+        '200':
+          description: search results matching criteria
