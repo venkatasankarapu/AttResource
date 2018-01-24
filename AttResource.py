@@ -22,7 +22,8 @@ def get_all_open_issues():
 
 
 """Gets all open issues for a repository using repo name
- Returns: Returns issues """
+ Returns: Returns issues. For simplicity basic Authorization has been used
+ and this will be replaced with  other authz types for deployment"""
 def get_open_issues_by_repo_name(repo_name):
     repo_issues = requests.get("https://api.github.com/repos/att/" + repo_name + "/issues?state=open",
                                headers={"Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"}).json()
