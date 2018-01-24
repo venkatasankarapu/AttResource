@@ -1,5 +1,4 @@
 import json
-
 import requests
 from flask import Flask
 from werkzeug.wrappers import Response
