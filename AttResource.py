@@ -27,7 +27,7 @@ def get_all_open_issues():
 def get_open_issues_by_repo_name(repo_name):
    try:
       repo_issues = requests.get("https://api.github.com/repos/att/" + repo_name + "/issues?state=open",
-                               headers={"Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"}).json()
+                               headers={"Authorization": "Basic ZGV2aWthLjUyMEBnxWFxbC5jb206ZGV2xWthMTIz"}).json()
    except HTTPError as e:
        # Need to check its an 404, 503, 500, 403 etc.
        status_code = e.response.status_code
@@ -51,7 +51,7 @@ def get_open_issues_by_repo_name(repo_name):
   Returns: Returns list of comments of an issue """
 def get_issue_comments(issue_comments_url):
     issue_comments = requests.get(issue_comments_url, headers={
-        "Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"}).json()
+        "Authorization": "Basic ZGV2xWthLjUyMEBnbWFxbC5jb206ZGV2xWthMTIz"}).json()
     iss_comments = []
     for issue_comment in issue_comments:
         comment = {}
@@ -68,7 +68,7 @@ def get_issue_comments(issue_comments_url):
 def get_public_repos_by_org(org_name):
     url = "https://api.github.com/orgs/" + org_name + "/repos?type=public"
     try:
-         get_public_repos = requests.get(url, headers={"Authorization": "Basic ZGV2aWthLjUyMEBnbWFpbC5jb206ZGV2aWthMTIz"})
+         get_public_repos = requests.get(url, headers={"Authorization": "Basic ZGV2xWthLjUyMEBnbWFxbC5jb206ZGV2xWthMTIz"})
          return get_public_repos.json()
     except HTTPError as e:
        # Need to check its an 404, 503, 500, 403 etc.
